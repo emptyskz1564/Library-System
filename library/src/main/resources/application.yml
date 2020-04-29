@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    data-username: root
+    data-password: 321
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///library?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+  #redis≈‰÷√
+  redis:
+    host: 47.111.252.78
+    port: 6379
+    password: ljx62149079
+    lettuce:
+      pool:
+        max-idle: 30
+        max-wait: 3000
+        max-active: 30
+    timeout: 3000
+  servlet:
+    multipart:
+      max-file-size: 1GB
+      max-request-size: 1GB
