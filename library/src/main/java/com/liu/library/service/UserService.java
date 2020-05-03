@@ -15,4 +15,6 @@ public interface UserService {
     public int regist(user user);
     //更新用户信息
     public int update(user user);
+    //通过id删除用户信息
+    public int deleteUserById(Integer userId);
  }

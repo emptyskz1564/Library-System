@@ -52,5 +52,13 @@ public class UserServiceImpl implements UserService {
         return i;
     }
 
+    @Override
+    public int deleteUserById(Integer userId) {
+        QueryWrapper<user> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_id",userId);
+        int i = userDao.delete(queryWrapper);
+        return i;
+    }
+
 
 }
