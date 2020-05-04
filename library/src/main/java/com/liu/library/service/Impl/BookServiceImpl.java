@@ -32,10 +32,10 @@ public class BookServiceImpl implements BookService {
     @Override
     public int sold(Integer bookId) {
         QueryWrapper<books> wrapper = new QueryWrapper<>();
-        wrapper.eq("bookId",bookId);
+        wrapper.eq("book_id",bookId);
         books book = booksDao.selectOne(wrapper);
         Integer bookCount = book.getBookCount();
-        book.setBookCount(bookCount--);
+        book.setBookCount(--bookCount);
         int update = booksDao.update(book, wrapper);
         return update;
     }
@@ -45,8 +45,10 @@ public class BookServiceImpl implements BookService {
         QueryWrapper<books> wrapper = new QueryWrapper<>();
 
         wrapper
-                .like("bookName",str)
-                .like("bookType",str);
+                .like("book_name",str)
+                .or()
+                .like("book_type",str);
+
 
         return booksDao.selectList(wrapper);
     }

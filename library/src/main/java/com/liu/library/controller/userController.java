@@ -30,12 +30,12 @@ public class userController {
     }
 
     @RequestMapping(value = "/regist/{user}" ,method = RequestMethod.POST)
-    public void regist(@PathVariable user user){
-        userServiceImpl.regist(user);
+    public void regist(@PathVariable String user){
+        userServiceImpl.regist(null);
     }
 
     @RequestMapping(value = "/update/{user}",method = RequestMethod.POST)
-    public void updateUser(@PathVariable user user){
-        userServiceImpl.update(user);
+    public void updateUser(@PathVariable String user){
+        userServiceImpl.update(null);
     }
 }

@@ -47,8 +47,10 @@ public class UserServiceImpl implements UserService {
         user updateUser = new user();
         updateUser.setUserId(6);
         updateUser.setUserName("emptyskz");
+        QueryWrapper<com.liu.library.pojo.user> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_id",updateUser.getUserId());
         //这里会根据传递的updateUser的Id属性去修改其userName字段的内容
-        int i = userDao.updateById(updateUser);
+        int i = userDao.update(updateUser,queryWrapper);
         return i;
     }
 

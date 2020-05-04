@@ -24,12 +24,12 @@ public class CartServiceImpl implements CartService {
     @Override
     public List<books> userCart(Integer userId) {
         QueryWrapper<cart> wrapper = new QueryWrapper<>();
-        wrapper.eq("userId",userId);
+        wrapper.eq("user_id",userId);
         List<cart> carts = cartDao.selectList(wrapper);
         ArrayList<books> books = new ArrayList<>();
         for (cart cart : carts) {
             QueryWrapper<books> bookWrapper = new QueryWrapper<>();
-            bookWrapper.eq("bookId",cart.getBookId());
+            bookWrapper.eq("book_id",cart.getBookId());
             books.add(booksDao.selectOne(bookWrapper));
         }
         return books;
@@ -43,6 +43,9 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public List<books> Order(Integer[] bookIds) {
-        return null;
+        QueryWrapper<books> booksQueryWrapper = new QueryWrapper<>();
+        booksQueryWrapper.in("book_id",bookIds);
+        List<books> books = booksDao.selectList(booksQueryWrapper);
+        return books;
     }
 }

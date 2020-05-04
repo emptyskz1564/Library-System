@@ -19,6 +19,18 @@
     </properties>
 
     <dependencies>
+        <!--shiro 三大部分
+        Subject ： 用户
+        SecurityManager ： 管理
+        Realm ： 连接数据
+                -->
+        <!--  shiro整合SpringBoot 的包      -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
